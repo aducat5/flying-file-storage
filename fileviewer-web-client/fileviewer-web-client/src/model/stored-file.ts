@@ -1,6 +1,11 @@
 export class StoredFile {
-    name = "";
-    size = 0;
-    type = "";
-    data = [];
+    Name = "";
+    Size = 0;
+    Type = "";
+    Data = "";
+    constructor (file : File){
+        this.Name = file.name;
+        this.Size = file.size;
+        this.Type = file.type;
+    }
 }

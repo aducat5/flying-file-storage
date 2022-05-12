@@ -14,10 +14,10 @@ namespace FileViewer.Model
         public string Type { get; set; } = "";
 
         [BsonElement("size")]
-        public string Size { get; set; } = "";
+        public int Size { get; set; } = 0;
 
         [BsonElement("data")]
-        public byte[] Data { get; set; } = Array.Empty<byte>();
+        public string Data { get; set; } = "";
 
         [BsonElement("createdAt")]
         public DateTime CreatedAt { get; set; }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import FileService from 'src/api/file-service.service';
+import { StoredFile } from 'src/model/stored-file';
 
 @Component({
   selector: 'app-root',
@@ -16,8 +17,16 @@ export class AppComponent {
       
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
+        let fileToUpload = new StoredFile(file);
         
-        this.fileService.upload(file).subscribe((data : any) => {console.log(data)});
+        //do file reading here
+        let reader = new FileReader();
+        reader.onload = () => {
+          fileToUpload.Data = reader.result?.toString() || "";
+          this.fileService.upload(fileToUpload).subscribe((data : any) => {console.log(data)});
+        };
+        reader.readAsDataURL(file);
+        
       }
       
     }else{
