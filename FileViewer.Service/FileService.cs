@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FileViewer.Model;
+using FileViewer.Service.DBConnection;
+using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +12,22 @@ namespace FileViewer.Service
     public class FileService
     {
 
+        private readonly IMongoCollection<StoredFile> _files;
+
+        public FileService(IFileStorageDBSettings settings)
+        {
+            var client = new MongoClient(settings.ConnectionString);
+            var database = client.GetDatabase(settings.DatabaseName);
+            _files = database.GetCollection<StoredFile>(settings.CollectionName);
+        }
+
+        public async Task<List<StoredFile>> GetAllAsync()
+        {
+            return await _files.Find(f => true).ToListAsync();
+        }
+        public async Task<bool> PutAsync(StoredFile storedFile)
+        {
+            return true;
+        }
     }
 }

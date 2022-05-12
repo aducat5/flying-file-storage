@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CognizantGallery.Data
+﻿namespace FileViewer.Service.DBConnection
 {
-    public class FileStorageDBSettings : IFileStorageDBSettings
+    public record FileStorageDBSettings : IFileStorageDBSettings
     {
-
+        public string CollectionName { get; set; } = "";
+        public string ConnectionString { get; set; } = "";
+        public string DatabaseName { get; set; } = "";
     }
 }
