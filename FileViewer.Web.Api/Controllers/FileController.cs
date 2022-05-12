@@ -28,8 +28,8 @@ namespace FileViewer.Web.Api.Controllers
             //make your checks
             try
             {
-                bool isUploaded = await _fileService.PutAsync(file);
-                return Ok(isUploaded);
+                await _fileService.PutAsync(file);
+                return Ok();
             }
             catch (Exception ex)
             {

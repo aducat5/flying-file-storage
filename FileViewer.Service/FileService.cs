@@ -25,9 +25,9 @@ namespace FileViewer.Service
         {
             return await _files.Find(f => true).ToListAsync();
         }
-        public async Task<bool> PutAsync(StoredFile storedFile)
+        public async Task PutAsync(StoredFile storedFile)
         {
-            return true;
+            await _files.InsertOneAsync(storedFile);
         }
     }
 }
