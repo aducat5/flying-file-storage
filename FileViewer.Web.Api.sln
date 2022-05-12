@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileViewer.Web.Api", "FileViewer.Web.Api\FileViewer.Web.Api.csproj", "{B8CBB180-1AAE-4517-B2AA-413BE9AFF734}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileViewer.Web.Api", "FileViewer.Web.Api\FileViewer.Web.Api.csproj", "{B8CBB180-1AAE-4517-B2AA-413BE9AFF734}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileViewer.Model", "FileViewer.Model\FileViewer.Model.csproj", "{8F01A00E-C616-42A9-A3DC-EC1C6FA3F57B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileViewer.Model", "FileViewer.Model\FileViewer.Model.csproj", "{8F01A00E-C616-42A9-A3DC-EC1C6FA3F57B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileViewer.Service", "FileViewer.Service\FileViewer.Service.csproj", "{F8193D47-15F0-406A-8F6E-CFB4FF4E21F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileViewer.Service", "FileViewer.Service\FileViewer.Service.csproj", "{F8193D47-15F0-406A-8F6E-CFB4FF4E21F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileViewer.Test", "FileViewer.Test\FileViewer.Test.csproj", "{FAEBC4B2-BE61-49D6-922E-EED54CA0B309}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileViewer.Test", "FileViewer.Test\FileViewer.Test.csproj", "{FAEBC4B2-BE61-49D6-922E-EED54CA0B309}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

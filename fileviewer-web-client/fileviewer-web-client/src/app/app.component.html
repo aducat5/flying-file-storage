@@ -1,0 +1,22 @@
+<hr />
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <h1 class="display-3">Welcome to the File Storage!</h1>
+      <p class="display-6">This is the test case for Flying Donkey.</p>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-3">
+      <app-bs-card [cardTitle]="'Use here to upload file!'" class="text-center">
+        <button class="btn btn-primary">Select File</button>
+      </app-bs-card>
+    </div>
+    <div class="col-9">
+      <app-bs-row-files [cardTitle]="'List of JPEG Files'"></app-bs-row-files>
+      <app-bs-row-files [cardTitle]="'List of PNG Files'"></app-bs-row-files>
+      <app-bs-row-files [cardTitle]="'List of PDF Files'"></app-bs-row-files>
+    </div>
+  </div>
+</div>
