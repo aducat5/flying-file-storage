@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace FileViewer.Web.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("file")]
     public class FileController : ControllerBase
     {
         private readonly FileService _fileService;
@@ -20,6 +20,17 @@ namespace FileViewer.Web.Api.Controllers
         {
             var storedFiles = await _fileService.GetAllAsync();
             return Ok(storedFiles);
+        }
+
+        [HttpGet("upload")]
+        public async Task<ActionResult<IEnumerable<StoredFile>>> UploadFile(StoredFile file)
+        {
+            //make your checks
+            bool isUploaded = await _fileService.PutAsync(file);
+            if (isUploaded)
+                return Ok();
+            else
+                return BadRequest();
         }
     }
 }
