@@ -1,6 +1,13 @@
+using FileViewer.Service;
+using FileViewer.Service.DBConnection;
+using Microsoft.Extensions.Options;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.Configure<FileStorageDBSettings>(builder.Configuration.GetSection(nameof(FileStorageDBSettings)));
+builder.Services.AddSingleton<IFileStorageDBSettings>(sp => sp.GetRequiredService<IOptions<FileStorageDBSettings>>().Value);
+builder.Services.AddScoped<FileService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbucklez

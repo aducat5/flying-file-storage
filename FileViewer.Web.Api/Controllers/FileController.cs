@@ -1,3 +1,5 @@
+using FileViewer.Model;
+using FileViewer.Service;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FileViewer.Web.Api.Controllers
@@ -6,11 +8,18 @@ namespace FileViewer.Web.Api.Controllers
     [Route("[controller]")]
     public class FileController : ControllerBase
     {
-        private readonly ILogger<FileController> _logger;
+        private readonly FileService _fileService;
 
-        public FileController(ILogger<FileController> logger)
+        public FileController(FileService fileService)
         {
-            _logger = logger;
+            _fileService = fileService;
+        }
+
+        [HttpGet("get-all")]
+        public async Task<ActionResult<IEnumerable<StoredFile>>> GetAll()
+        {
+            var storedFiles = await _fileService.GetAllAsync();
+            return Ok(storedFiles);
         }
     }
 }
