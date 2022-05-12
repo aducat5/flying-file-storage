@@ -14,6 +14,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//enabling cors for client app
+builder.Services.AddCors(o => o.AddPolicy("LowCorsPolicy", builder => {
+    builder.AllowAnyOrigin()
+       .AllowAnyMethod()
+       .AllowAnyHeader();
+}));
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,6 +32,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+//use the new cors policy
+app.UseCors("LowCorsPolicy");
 
 app.UseAuthorization();
 

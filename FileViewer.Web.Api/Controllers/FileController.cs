@@ -22,15 +22,19 @@ namespace FileViewer.Web.Api.Controllers
             return Ok(storedFiles);
         }
 
-        [HttpGet("upload")]
-        public async Task<ActionResult<IEnumerable<StoredFile>>> UploadFile(StoredFile file)
+        [HttpPost("upload")]
+        public async Task<ActionResult> UploadFiles(StoredFile file)
         {
             //make your checks
-            bool isUploaded = await _fileService.PutAsync(file);
-            if (isUploaded)
-                return Ok();
-            else
-                return BadRequest();
+            try
+            {
+                bool isUploaded = await _fileService.PutAsync(file);
+                return Ok(isUploaded);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
