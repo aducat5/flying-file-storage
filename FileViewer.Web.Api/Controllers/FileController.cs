@@ -29,6 +29,7 @@ namespace FileViewer.Web.Api.Controllers
             //make your checks
             try
             {
+                file.createdAt = DateTime.Now;
                 await _fileService.PutAsync(file);
                 return Ok();
             }

@@ -1,5 +1,5 @@
 <div *ngIf="fileGroup.length > 0">
     <div *ngFor="let fileList of fileGroup">
-        <app-bs-row-files [files]="fileList"></app-bs-row-files>
+        <app-bs-row-files [files]="fileList" [cardType]="fileList[0]?.type || ''"></app-bs-row-files>
     </div>
 </div>

@@ -8,10 +8,8 @@ import { StoredFile } from 'src/model/stored-file';
 })
 export class BsRowFilesComponent implements OnInit {
   @Input() files = [] as StoredFile[];
-  
-  fileType = this.files[0]?.type || "Unknown";
-  cardTitle = "List of " + this.fileType + " type of files";
-  
+  @Input() cardType = "";
+    
   constructor() {}
   
   ngOnInit(): void {

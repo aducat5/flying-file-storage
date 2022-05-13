@@ -1,7 +1,6 @@
 <table class="table">
     <thead>
         <tr>
-        <!-- <th>#</th> -->
         <th>File Name</th>
         <th>File Type</th>
         <th>File Size</th>
@@ -11,14 +10,13 @@
     </thead>
     <tbody>
         <tr *ngFor="let file of files">
-            <!-- <td>{{file.id}}</td> -->
             <td>{{file.name}}</td>
             <td>{{file.type}}</td>
             <td>{{file.size}}</td>
             <td>{{file.createdAt}}</td>
             <td>
-                <button class="btn btn-success">Download</button>
-                <button *ngIf="file.isViewable" class="btn btn-primary">View</button>
+                <button class="btn btn-success disabled">Download</button>
+                <button *ngIf="file.isViewable" class="btn btn-primary disabled">View</button>
             </td>
         </tr>
     </tbody>

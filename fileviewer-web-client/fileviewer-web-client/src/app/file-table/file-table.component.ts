@@ -8,9 +8,7 @@ import { StoredFile } from 'src/model/stored-file';
 })
 export class FileTableComponent implements OnInit {
   @Input() files = [] as StoredFile[];
-  constructor() {
-    
-  }
+  constructor() {}
 
   ngOnInit(): void {
   }

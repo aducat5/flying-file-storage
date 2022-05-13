@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BsCardComponent } from './bs-card/bs-card.component';
-import { BsTableComponent } from './bs-table/bs-table.component';
-// import FileService from 'src/api/file-service.service';
 import { BsRowFilesComponent } from './bs-row-files/bs-row-files.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GroupedListComponent } from './grouped-list/grouped-list.component';
@@ -14,7 +12,6 @@ import { FileTableComponent } from './file-table/file-table.component';
   declarations: [
     AppComponent,
     BsCardComponent,
-    BsTableComponent,
     BsRowFilesComponent,
     GroupedListComponent,
     FileTableComponent
@@ -22,7 +19,6 @@ import { FileTableComponent } from './file-table/file-table.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    // FileService
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,7 +12,6 @@ export class AppComponent {
   constructor(private fileService : FileService){
     fileService.getAll().subscribe((data : any) => {
       this.groupedList = data;
-      console.log(this.groupedList);
     });
   }
   onFileUpload = (event : Event) => {
@@ -29,10 +28,11 @@ export class AppComponent {
         let reader = new FileReader();
         reader.onload = () => {
           fileToUpload.data = reader.result?.toString() || "";
-          this.fileService.upload(fileToUpload).subscribe((data : any) => {console.log(data)});
+          this.fileService.upload(fileToUpload).subscribe((data : any) => {
+            this.groupedList = data;
+          });
         };
         reader.readAsDataURL(file);
-        
       }
       
     }else{
