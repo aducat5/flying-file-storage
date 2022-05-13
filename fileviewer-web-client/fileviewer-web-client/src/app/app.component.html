@@ -11,6 +11,11 @@
     <div class="col-3">
       <app-bs-card [cardTitle]="'Use here to upload file!'" class="text-center">
         <input type="file" class="form-control" (change)="onFileUpload($event)" multiple/>
+        <ul>
+          <li *ngFor="let name of uploadedFiles">
+            {{name}} is uploaded <em class="fa fa-check text-green"></em>
+          </li>
+        </ul>
       </app-bs-card>
     </div>
     <div class="col-9">

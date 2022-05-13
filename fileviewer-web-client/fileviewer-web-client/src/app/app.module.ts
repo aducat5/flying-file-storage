@@ -14,7 +14,7 @@ import { FileTableComponent } from './file-table/file-table.component';
     BsCardComponent,
     BsRowFilesComponent,
     GroupedListComponent,
-    FileTableComponent
+    FileTableComponent,
   ],
   imports: [
     BrowserModule,
