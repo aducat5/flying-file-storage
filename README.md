@@ -32,6 +32,5 @@ This app contains three main parts;
 
 
 ## If you want to self-host the DB,
- - dummy data that i used is located in *sampleData* folder.
- - just import the .json file to a mongoDB
+ - there is no initial data is needed.
  - update the connection string located in *FileViewer.Web.Api\appsettings.json* 
