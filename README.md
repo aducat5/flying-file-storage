@@ -7,7 +7,7 @@ This app contains three main parts;
 
 # Requirements
   - dotnet runtime for API project
-  - angular cli for React project
+  - angular cli for Angular project
   - an internet connection for db
 
 - clone the project
