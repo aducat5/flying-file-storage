@@ -8,7 +8,13 @@ import { StoredFile } from 'src/model/stored-file';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private fileService : FileService){}
+  groupedList = [] as Array<Array<StoredFile>>;
+  constructor(private fileService : FileService){
+    fileService.getAll().subscribe((data : any) => {
+      this.groupedList = data;
+      console.log(this.groupedList);
+    });
+  }
   onFileUpload = (event : Event) => {
     const input = event.target as HTMLInputElement;
     const files = input.files as FileList;
@@ -22,7 +28,7 @@ export class AppComponent {
         //do file reading here
         let reader = new FileReader();
         reader.onload = () => {
-          fileToUpload.Data = reader.result?.toString() || "";
+          fileToUpload.data = reader.result?.toString() || "";
           this.fileService.upload(fileToUpload).subscribe((data : any) => {console.log(data)});
         };
         reader.readAsDataURL(file);

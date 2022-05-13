@@ -10,13 +10,13 @@ import { StoredFile } from 'src/model/stored-file';
 export default class FileService {
   constructor(private http : HttpClient) {}
   upload(file : StoredFile){
-    const endpoint = uploadEnpoint;
-
-
-    return this.http.post(endpoint, file, {
+    return this.http.post(uploadEnpoint, file, {
       headers : {'Content-Type' : 'application/json'},
       reportProgress: true, 
       observe: 'response',
     }).pipe();
+  }
+  getAll(){
+    return this.http.get(getAllEnpoint).pipe();
   }
 }

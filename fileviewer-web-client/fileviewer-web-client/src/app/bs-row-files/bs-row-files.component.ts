@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { StoredFile } from 'src/model/stored-file';
 
 @Component({
   selector: 'app-bs-row-files',
@@ -6,10 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./bs-row-files.component.css']
 })
 export class BsRowFilesComponent implements OnInit {
-  @Input() cardTitle = ''
-  constructor() { }
-
+  @Input() files = [] as StoredFile[];
+  
+  fileType = this.files[0]?.type || "Unknown";
+  cardTitle = "List of " + this.fileType + " type of files";
+  
+  constructor() {}
+  
   ngOnInit(): void {
   }
-
 }

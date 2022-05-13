@@ -1,0 +1,5 @@
+<div *ngIf="fileGroup.length > 0">
+    <div *ngFor="let fileList of fileGroup">
+        <app-bs-row-files [files]="fileList"></app-bs-row-files>
+    </div>
+</div>

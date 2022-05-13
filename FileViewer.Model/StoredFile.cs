@@ -1,28 +1,29 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace FileViewer.Model
 {
     public record StoredFile
     {
         [BsonId]
-        public int Id { get; set; }
+        public ObjectId id { get; set; }
 
         [BsonElement("name")]
-        public string Name { get; set; } = "";
+        public string name { get; set; } = "";
 
         [BsonElement("type")]
-        public string Type { get; set; } = "";
+        public string type { get; set; } = "";
 
         [BsonElement("size")]
-        public int Size { get; set; } = 0;
+        public int size { get; set; } = 0;
 
         [BsonElement("data")]
-        public string Data { get; set; } = "";
+        public string data { get; set; } = "";
 
         [BsonElement("createdAt")]
-        public DateTime CreatedAt { get; set; }
+        public DateTime createdAt { get; set; }
 
         [BsonElement("isDeleted")]
-        public bool IsDeleted { get; set; }
+        public bool isDeleted { get; set; }
     }
 }

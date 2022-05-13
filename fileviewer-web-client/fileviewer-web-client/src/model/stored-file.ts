@@ -1,11 +1,14 @@
 export class StoredFile {
-    Name = "";
-    Size = 0;
-    Type = "";
-    Data = "";
+    name = "";
+    size = 0;
+    type = "";
+    data = "";
+    createdAt = Date.now;
+    isDeleted = false;
+    isViewable = true;
     constructor (file : File){
-        this.Name = file.name;
-        this.Size = file.size;
-        this.Type = file.type;
+        this.name = file.name;
+        this.size = file.size;
+        this.type = file.type;
     }
 }

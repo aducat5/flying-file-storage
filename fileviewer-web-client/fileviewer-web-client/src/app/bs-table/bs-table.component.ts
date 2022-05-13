@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-bs-table',
@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bs-table.component.css']
 })
 export class BsTableComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {
