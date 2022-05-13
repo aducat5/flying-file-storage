@@ -26,9 +26,18 @@ namespace FileViewer.Web.Api.Controllers
         [HttpPost("upload")]
         public async Task<ActionResult> UploadFiles(StoredFile file)
         {
+            var allowedTypes = new List<string>()
+            {
+                "image/jpeg",
+                "image/png",
+                "application/pdf"
+            };
             //make your checks
             try
             {
+                if (!allowedTypes.Contains(file.type))
+                    return BadRequest("type of file is not allowed.");
+                    
                 file.createdAt = DateTime.Now;
                 await _fileService.PutAsync(file);
                 return Ok();

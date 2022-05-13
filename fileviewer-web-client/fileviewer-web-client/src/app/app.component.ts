@@ -10,7 +10,7 @@ import { StoredFile } from 'src/model/stored-file';
 export class AppComponent {
   private _fileService : FileService;
   groupedList = [] as Array<Array<StoredFile>>;
-  uploadedFiles = [] as string[];
+  logs = [] as string[];
 
   constructor(private fileService : FileService){
     this._fileService = fileService;
@@ -27,24 +27,26 @@ export class AppComponent {
     const input = event.target as HTMLInputElement;
     const files = input.files as FileList;
 
-    if (files.length > 0){
-      
-      for (let i = 0; i < files.length; i++) {
-        const file = files[i];
-        let fileToUpload = new StoredFile(file);
-        let reader = new FileReader();
-        reader.onload = () => {
-          fileToUpload.data = reader.result?.toString() || "";
-          this.fileService.upload(fileToUpload).subscribe((data : any) => {
-            this.getAll(this._fileService);
-            this.uploadedFiles = [...this.uploadedFiles, fileToUpload.name];
-          });
-        };
-        reader.readAsDataURL(file);
-      }
-    }else{
-      console.log("error");
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      let fileToUpload = new StoredFile(file);
+      let reader = new FileReader();
+      reader.onload = () => {
+        fileToUpload.data = reader.result?.toString() || "";
+        this.fileService.upload(fileToUpload).subscribe(
+          (data : any) => {
+          this.getAll(this._fileService);
+          this.logs = [...this.logs, fileToUpload.name + ' named file is uploaded.'];
+          console.log(data);
+          },
+          (errorResponse : any) => {
+            this.logs = [...this.logs, fileToUpload.name + ' named file cannot be uploaded. ' + errorResponse.error];
+          }
+          );
+      };
+      reader.readAsDataURL(file);
     }
+
   };
 
 }
