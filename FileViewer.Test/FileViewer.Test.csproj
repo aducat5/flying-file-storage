@@ -17,4 +17,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FileViewer.Service\FileViewer.Service.csproj" />
+    <ProjectReference Include="..\FileViewer.Web.Api\FileViewer.Web.Api.csproj" />
+  </ItemGroup>
+
 </Project>
